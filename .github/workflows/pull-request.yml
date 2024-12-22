@@ -2,11 +2,15 @@ name: Pull Request
 
 on:
     workflow_dispatch: {}
+    pull_request:
+        types:
+            - opened
+            - synchronize
 
 jobs:
     build:
         name: Build Android
-        runs-on: [self-hosted, linux]
+        runs-on: self-hosted
         steps:
             - name: Checkout my unity project.
               uses: actions/checkout@v4
@@ -35,7 +39,7 @@ jobs:
                 path: Library
                 key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
                 restore-keys: |
-                Library-
+                  Library-
             
             - name: Run the Android build
               uses: game-ci/unity-builder@v4
