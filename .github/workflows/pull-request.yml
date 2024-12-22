@@ -13,6 +13,10 @@ jobs:
     name: Run the Android build
     runs-on: self-hosted
     steps:
+      # ディレクトリ及びファイルの所有権をrootに変更
+      - name: Fix permissions
+        run: sudo chown -R $USER:$USER $GITHUB_WORKSPACE
+
       # リポジトリのチェックアウト
       - name: Check out my unity project.
         uses: actions/checkout@v4
