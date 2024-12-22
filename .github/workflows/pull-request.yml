@@ -10,7 +10,7 @@ on:
 jobs:
     build:
         name: Build Android
-        runs-on: self-hosted
+        runs-on: [self-hosted, linux]
         steps:
             - name: Checkout my unity project.
               uses: actions/checkout@v4
