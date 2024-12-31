@@ -6,6 +6,8 @@ on:
       - opened
       - synchronize
 
+permissions: read-all
+
 jobs:
   build:
     name: Build Android
