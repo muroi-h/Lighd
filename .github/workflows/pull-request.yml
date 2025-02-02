@@ -60,5 +60,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Lighd
-          path: build
+          path: Lighd
           retention-days: 7
